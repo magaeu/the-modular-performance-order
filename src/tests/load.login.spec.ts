@@ -1,5 +1,5 @@
 import { Trend, Rate } from 'k6/metrics';
-import { loginFlow } from '@flows/login.flow';
+import { loginFlow } from '../flows/login.flow';
 
 const LoginDuration = new Trend("login_duration_ms");
 const errors = new Rate("errors");
@@ -24,6 +24,6 @@ export const options = {
   summaryTrendStats: ['avg', 'min', 'max', 'count']
 };
 
-export default function () {
+export default () => {
   loginFlow();
 }

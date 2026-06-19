@@ -1,10 +1,11 @@
 import { check } from 'k6';
 import http from 'k6/http';
-import { setSleep } from '@utils/helpers/sleep.helper';
+import { APIRoutes } from '../utils/constants/routes';
+import { setSleep } from '../utils/helpers/sleep.helper';
 
-const url = `${process.env.API_URL}/api/users/token/login`;
+const url = `${process.env.API_URL}${APIRoutes.LOGIN}`;
 
-export function loginFlow() {
+export const loginFlow = () => {
     const payload = JSON.stringify({
         username: 'default',
         password: '1234',
@@ -13,6 +14,9 @@ export function loginFlow() {
         headers: {
             'Content-Type': 'application/json',
         },
+        tags: {
+            name: 'login',
+        }
     };
 
     const loginResponse = http.post(url, payload, params);

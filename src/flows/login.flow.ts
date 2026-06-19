@@ -1,8 +1,10 @@
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 import http from 'k6/http';
+import { setSleep } from '@utils/helpers/sleep.helper';
+
+const url = `${process.env.API_URL}/api/users/token/login`;
 
 export function loginFlow() {
-    const url = 'https://quickpizza.grafana.com/api/users/token/login';
     const payload = JSON.stringify({
         username: 'default',
         password: '1234',
@@ -18,5 +20,6 @@ export function loginFlow() {
     check(loginResponse, {
         'response code status was 200': (resp) => resp.status == 200,
     });
-    sleep(Math.random() * 2 + 0.5);
+
+    setSleep();
 }

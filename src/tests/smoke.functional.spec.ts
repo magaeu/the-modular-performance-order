@@ -1,9 +1,7 @@
-// Import necessary modules
 import { check } from 'k6';
 import http from 'k6/http';
 
 export default function () {
-  // define URL and payload
   const url = 'https://quickpizza.grafana.com/api/users/token/login';
   const payload = JSON.stringify({
     username: 'default',
@@ -15,11 +13,9 @@ export default function () {
     },
   };
 
-  // send a post request and save response as a variable
   const res = http.post(url, payload, params);
 
-  // check that response is 200
   check(res, {
-    'response code was 200': (res) => res.status == 200,
+    'response code status was 200': (res) => res.status == 200,
   });
 }

@@ -15,19 +15,17 @@
         ],
         "paths": {
             "@flows/*": [
-                "./flows/*"
+                "./src/flows/*"
             ],
             "@utils/*": [
-                "./utils/*"
+                "./src/utils/*"
             ]
         }
     },
     "include": [
         "*.ts",
         "*.mts",
-        "flows/**/*.ts",
-        "tests/**/*.ts",
-        "utils/**/*.ts"
+        "src/**/*.ts",
     ],
     "exclude": [
         "node_modules",

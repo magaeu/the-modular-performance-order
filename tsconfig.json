@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "target": "ES2024",
+        "jsx": "react-jsx",
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strict": true,
+        "sourceMap": true,
+        "types": [
+            "node",
+            "k6"
+        ],
+        "paths": {
+            "@flows/*": [
+                "./flows/*"
+            ],
+            "@utils/*": [
+                "./utils/*"
+            ]
+        }
+    },
+    "include": [
+        "*.ts",
+        "*.mts",
+        "flows/**/*.ts",
+        "tests/**/*.ts",
+        "utils/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*",
+        "dist",
+        "test-results"
+    ]
+}

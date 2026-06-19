@@ -2,12 +2,8 @@ import { check, sleep } from 'k6';
 import http from 'k6/http';
 
 export const options = {
-  thresholds: {
-    http_req_failed: ['rate<0.05'],
-    http_req_duration: ['p(95)<1000'],
-  },
-  scenarios: {
-    average_load: {
+    scenarios: {
+        baseline: {
       executor: 'ramping-vus',
       stages: [
         { duration: '10s', target: 20 },
@@ -15,6 +11,10 @@ export const options = {
         { duration: '5s', target: 0 },
       ],
     },
+    },
+  thresholds: {
+    http_req_failed: ['rate<0.05'],
+    http_req_duration: ['p(95)<1000'],
   },
   summaryTrendStats: ['avg','min','max','count']
 };

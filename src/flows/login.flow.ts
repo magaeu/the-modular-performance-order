@@ -1,7 +1,7 @@
 import { check } from 'k6';
 import http from 'k6/http';
-import { APIRoutes } from '../utils/constants/routes';
-import { setSleep } from '../utils/helpers/sleep.helper';
+import { APIRoutes } from '@utils/constants/routes';
+import { setSleep } from '@utils/helpers/sleep.helper';
 
 const url = `${process.env.API_URL}${APIRoutes.LOGIN}`;
 

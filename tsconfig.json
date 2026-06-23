@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
+        "rootDir": "./",
+        "outDir": "./dist",
         "module": "NodeNext",
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "nodenext",
         "resolveJsonModule": true,
-        "target": "ESNext",
+        "target": "ES6",
         "strictNullChecks": true,
         "strictFunctionTypes": true,
+        "esModuleInterop": true,
         "strict": true,
         "sourceMap": true,
         "types": [

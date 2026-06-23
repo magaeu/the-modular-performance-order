@@ -1,0 +1,28 @@
+name: Performance Tests
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    test:
+        timeout-minutes: 30
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: lts/*
+            - name: Install dependencies
+              run: npm ci
+            - name: Setup k6
+              uses: grafana/setup-k6-action@v1
+            - name: Run smoke tests on land on page
+              run: npm run land-on-page:smoke
+            - name: Upload land on page smoke test results
+              uses: actions/upload-artifact@v4
+              with:
+                  name: land_on_page_smoke_results
+                  path: land_on_page_smoke.json

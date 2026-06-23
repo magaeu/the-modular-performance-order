@@ -77,6 +77,7 @@
 - TypeScript support with linting and formatting tooling
 - Environment variable support for dynamic API URL targeting
 - Metrics and thresholds defined in login flow for baseline validation
+- Import modules is not working due a [bug](https://github.com/grafana/k6/issues/5501#event-21566862732)
 
 ## References
 

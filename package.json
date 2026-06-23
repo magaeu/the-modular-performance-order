@@ -8,7 +8,7 @@
         "format: fix": "npx prettier --write src/*",
         "check-types": "tsc",
         "check-types:watch": "tsc --watch",
-        "land-on-page:smoke": "k6 run --config src/config/smoke.json src/tests/land.on.page.spec.ts",
+        "land-on-page:smoke": "k6 run --config src/config/smoke.json src/tests/land.on.page.spec.ts --out json=land_on_page_smoke.json",
         "land-on-page:load": "k6 run --config src/config/load.json src/tests/land.on.page.spec.ts",
         "login:smoke": "k6 run --config src/config/smoke.json src/tests/login.spec.ts",
         "login:load": "k6 run --config src/config/load.json src/tests/login.spec.ts"
